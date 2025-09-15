@@ -1435,8 +1435,10 @@ body::before {
 
 .titles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .title-card {
@@ -1514,90 +1516,372 @@ body::before {
     z-index: 2;
 }
 
-.prizes-section {
-    text-align: center;
-}
-
-.prizes-section h3 {
-    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    color: var(--gold);
-    font-weight: normal;
-    letter-spacing: 1px;
-}
-
-.prize-display {
-    padding: 2.5rem;
-    background: 
-        linear-gradient(135deg, 
-            rgba(255, 215, 0, 0.15) 0%, 
-            rgba(255, 215, 0, 0.05) 100%);
-    border-radius: 25px;
-    border: 2px solid rgba(255, 215, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    box-shadow: 
-        0 8px 32px rgba(255, 215, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.prize-amount {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.amount {
-    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
-    font-size: 3.5rem;
-    font-weight: normal;
-    color: var(--gold);
-    text-shadow: 
-        0 0 25px var(--gold),
-        0 0 50px rgba(255, 215, 0, 0.5),
-        0 0 75px rgba(255, 215, 0, 0.3);
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 2;
-}
-
-.currency {
-    font-size: 2.2rem;
-    color: var(--gold);
-    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
-    font-weight: normal;
-    letter-spacing: 1px;
-    text-shadow: 
-        0 0 20px var(--gold),
-        0 0 40px rgba(255, 215, 0, 0.5);
-    position: relative;
-    z-index: 2;
-}
-
-.prize-visual {
-    margin-top: 1rem;
-}
-
-.gift-box {
-    font-size: 4rem;
-    color: var(--gold);
-    animation: giftFloat 2s ease-in-out infinite;
-    text-shadow: 
-        0 0 25px var(--gold),
-        0 0 50px rgba(255, 215, 0, 0.5),
-        0 0 75px rgba(255, 215, 0, 0.3);
-    position: relative;
-    z-index: 2;
-}
 
 @keyframes giftFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Prize Fund Section */
+.prize-fund {
+    padding: 5rem 0;
+    background: 
+        linear-gradient(180deg, 
+            #0a0f2a 0%, 
+            #0a0f2a 8%, 
+            #0f1a3a 16%, 
+            #1a1a2e 24%, 
+            #16213e 32%, 
+            #0f3460 40%, 
+            #16213e 48%, 
+            #1a1a2e 56%, 
+            #0f1a3a 64%, 
+            #0a0f2a 72%, 
+            #0a0f2a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.prize-fund-content {
+    position: relative;
+    z-index: 2;
+}
+
+.prize-fund-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.prize-fund-text h3 {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-green);
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    text-shadow: 
+        0 0 20px var(--primary-green),
+        0 0 40px rgba(0, 255, 136, 0.5);
+}
+
+.prize-fund-text p {
+    font-family: 'Avatar', 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    opacity: 0.95;
+    letter-spacing: 0.8px;
+}
+
+.prize-fund-text .prize-amount {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    font-weight: normal;
+    text-shadow: 
+        0 0 15px var(--gold),
+        0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.prize-fund-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prize-trophy {
+    font-size: 8rem;
+    animation: trophyFloat 3s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
+}
+
+.prize-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: prizeGlow 4s ease-in-out infinite;
+}
+
+@keyframes trophyFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-15px) rotate(5deg); 
+    }
+}
+
+@keyframes prizeGlow {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.prize-distribution h4 {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--primary-green);
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px var(--primary-green);
+}
+
+.prize-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.prize-level {
+    background: 
+        linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.08) 0%, 
+            rgba(255, 255, 255, 0.03) 100%);
+    border-radius: 25px;
+    padding: 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.prize-level:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.prize-level.gold {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.prize-level.gold:hover {
+    border-color: var(--gold);
+    box-shadow: 
+        0 20px 40px rgba(255, 215, 0, 0.2),
+        0 10px 20px rgba(255, 215, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.prize-level.silver {
+    border-color: rgba(192, 192, 192, 0.4);
+}
+
+.prize-level.silver:hover {
+    border-color: #c0c0c0;
+    box-shadow: 
+        0 20px 40px rgba(192, 192, 192, 0.2),
+        0 10px 20px rgba(192, 192, 192, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.prize-level.bronze {
+    border-color: rgba(205, 127, 50, 0.4);
+}
+
+.prize-level.bronze:hover {
+    border-color: #cd7f32;
+    box-shadow: 
+        0 20px 40px rgba(205, 127, 50, 0.2),
+        0 10px 20px rgba(205, 127, 50, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.prize-medal {
+    font-size: 4rem;
+    animation: medalPulse 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+}
+
+.prize-level.gold .prize-medal {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+.prize-level.silver .prize-medal {
+    filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.6));
+}
+
+.prize-level.bronze .prize-medal {
+    filter: drop-shadow(0 0 20px rgba(205, 127, 50, 0.6));
+}
+
+@keyframes medalPulse {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.1); 
+    }
+}
+
+.prize-info {
+    flex: 1;
+}
+
+.prize-info h5 {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+    font-weight: normal;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+}
+
+.prize-description {
+    font-family: 'Avatar', 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-light);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.prize-value {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.prize-level.gold .prize-value {
+    color: var(--gold);
+    text-shadow: 
+        0 0 20px var(--gold),
+        0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.prize-level.silver .prize-value {
+    color: #c0c0c0;
+    text-shadow: 
+        0 0 20px #c0c0c0,
+        0 0 40px rgba(192, 192, 192, 0.5);
+}
+
+.prize-level.bronze .prize-value {
+    color: #cd7f32;
+    text-shadow: 
+        0 0 20px #cd7f32,
+        0 0 40px rgba(205, 127, 50, 0.5);
+}
+
+.prize-each {
+    font-family: 'Avatar', 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    opacity: 0.7;
+    position: relative;
+    z-index: 2;
+}
+
+.prize-summary {
+    display: flex;
+    justify-content: center;
+}
+
+.summary-card {
+    background: 
+        linear-gradient(135deg, 
+            rgba(0, 255, 136, 0.15) 0%, 
+            rgba(0, 255, 136, 0.05) 100%);
+    border-radius: 25px;
+    padding: 2.5rem;
+    border: 2px solid rgba(0, 255, 136, 0.4);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 8px 32px rgba(0, 255, 136, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.summary-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 255, 136, 0.3),
+        0 10px 20px rgba(0, 255, 136, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: var(--primary-green);
+}
+
+.summary-icon {
+    font-size: 4rem;
+    animation: giftFloat 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+}
+
+.summary-text h5 {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-green);
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px var(--primary-green);
+    position: relative;
+    z-index: 2;
+}
+
+.summary-text p {
+    font-family: 'Avatar', 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    opacity: 0.95;
+    line-height: 1.6;
+    letter-spacing: 0.8px;
+    position: relative;
+    z-index: 2;
+}
+
+.summary-text .total-amount {
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 1.4rem;
+    color: var(--primary-green);
+    font-weight: normal;
+    text-shadow: 
+        0 0 15px var(--primary-green),
+        0 0 30px rgba(0, 255, 136, 0.5);
 }
 
 /* Rules Section */
@@ -1915,9 +2199,33 @@ body::before {
     .mission-content,
     .tree-interactive-container,
     .rewards-content,
-    .rules-content {
+    .rules-content,
+    .prize-fund-intro {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .prize-levels {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .prize-level {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .prize-trophy {
+        font-size: 6rem;
+    }
+    
+    .prize-fund-text h3 {
+        font-size: 2rem;
+    }
+    
+    .prize-fund-text p {
+        font-size: 1.1rem;
     }
     
     .timeline-item {
@@ -1997,7 +2305,8 @@ body::before {
     }
     
     .titles-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .footer-content {
@@ -2101,8 +2410,30 @@ body::before {
     
     .mechanic-card,
     .title-card,
-    .rule-card {
+    .rule-card,
+    .prize-level,
+    .summary-card {
         padding: 1rem;
+    }
+    
+    .prize-trophy {
+        font-size: 5rem;
+    }
+    
+    .prize-fund-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .prize-fund-text p {
+        font-size: 1rem;
+    }
+    
+    .prize-medal {
+        font-size: 3rem;
+    }
+    
+    .prize-value {
+        font-size: 1.6rem;
     }
     
     .timeline-item {
