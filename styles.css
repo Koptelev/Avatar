@@ -1416,11 +1416,12 @@ body::before {
 
 
 .rewards-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 .titles-section h3 {
@@ -1437,8 +1438,8 @@ body::before {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
 }
 
 .title-card {
@@ -2307,6 +2308,7 @@ body::before {
     .titles-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+        padding: 0 1rem;
     }
     
     .footer-content {
@@ -2836,6 +2838,12 @@ body::before {
     
     .stats-content .stat-number {
         font-size: 1.8rem;
+    }
+    
+    .titles-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 0.5rem;
     }
 }
 
