@@ -1,0 +1,388 @@
+<svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Градиенты для биолюминесцентных эффектов -->
+    <radialGradient id="trunkGradient" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" style="stop-color:#6b9c7a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#4a7c59;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2d5016;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3d0a;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="branchGradient" cx="50%" cy="50%" r="100%">
+      <stop offset="0%" style="stop-color:#7baa8a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4a7c59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d5016;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="rootGradient" cx="50%" cy="50%" r="100%">
+      <stop offset="0%" style="stop-color:#5a8c69;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3d0a;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="leafGradient" cx="50%" cy="50%" r="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#00cc6a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#009944;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006644;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="bioluminescentGlow" cx="50%" cy="50%" r="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.8" />
+      <stop offset="30%" style="stop-color:#00aaff;stop-opacity:0.6" />
+      <stop offset="70%" style="stop-color:#aa00ff;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#ff00aa;stop-opacity:0.2" />
+    </radialGradient>
+    
+    <radialGradient id="energyFlow" cx="50%" cy="50%" r="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#00aaff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:0.1" />
+    </radialGradient>
+    
+    <!-- Фильтры для свечения -->
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="bioluminescentGlow" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="energyGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Фоновое энергетическое поле -->
+  <ellipse cx="300" cy="400" rx="280" ry="350" fill="url(#bioluminescentGlow)" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="280;300;280" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="350;380;350" dur="7s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Множественные корни дерева -->
+  <g id="massiveRoots">
+    <!-- Основные корни -->
+    <path d="M 250 750 Q 150 780 80 800 L 100 800 Q 180 780 250 750" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 300 750 Q 300 780 300 800" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 350 750 Q 450 780 520 800 L 500 800 Q 420 780 350 750" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    
+    <!-- Дополнительные корни -->
+    <path d="M 220 750 Q 100 770 50 790" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 280 750 Q 200 770 150 790" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 320 750 Q 400 770 450 790" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 380 750 Q 500 770 550 790" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    
+    <!-- Мелкие корни -->
+    <path d="M 200 750 Q 80 760 40 770" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 240 750 Q 120 760 80 770" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 360 750 Q 480 760 520 770" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    <path d="M 400 750 Q 520 760 560 770" fill="url(#rootGradient)" filter="url(#strongGlow)"/>
+    
+    <!-- Энергетические корни -->
+    <path d="M 180 750 Q 60 740 20 720" fill="url(#rootGradient)" filter="url(#energyGlow)"/>
+    <path d="M 420 750 Q 540 740 580 720" fill="url(#rootGradient)" filter="url(#energyGlow)"/>
+  </g>
+  
+  <!-- Огромный основной ствол -->
+  <g id="massiveTrunk">
+    <path d="M 250 750 Q 250 500 260 300 Q 270 150 280 50 Q 300 20 300 0" 
+          fill="url(#trunkGradient)" 
+          filter="url(#bioluminescentGlow)"
+          stroke="#1a3d0a" 
+          stroke-width="4"/>
+    <path d="M 350 750 Q 350 500 340 300 Q 330 150 320 50 Q 300 20 300 0" 
+          fill="url(#trunkGradient)" 
+          filter="url(#bioluminescentGlow)"
+          stroke="#1a3d0a" 
+          stroke-width="4"/>
+    
+    <!-- Дополнительные стволы -->
+    <path d="M 200 750 Q 200 600 210 400 Q 220 200 230 100 Q 240 50 250 0" 
+          fill="url(#trunkGradient)" 
+          filter="url(#strongGlow)"
+          stroke="#1a3d0a" 
+          stroke-width="3"/>
+    <path d="M 400 750 Q 400 600 390 400 Q 380 200 370 100 Q 360 50 350 0" 
+          fill="url(#trunkGradient)" 
+          filter="url(#strongGlow)"
+          stroke="#1a3d0a" 
+          stroke-width="3"/>
+  </g>
+  
+  <!-- Массивные ветви -->
+  <g id="massiveBranches">
+    <!-- Левая сторона - огромные ветви -->
+    <path d="M 260 200 Q 100 150 20 100 Q -20 60 -40 20" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="15" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 260 300 Q 80 250 0 200 Q -30 170 -50 140" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="12" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 260 400 Q 90 350 20 300 Q -10 270 -30 240" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="10" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 260 500 Q 100 450 40 400 Q 10 370 -10 340" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="8" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    
+    <!-- Правая сторона - огромные ветви -->
+    <path d="M 340 200 Q 500 150 580 100 Q 620 60 640 20" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="15" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 340 300 Q 520 250 600 200 Q 630 170 650 140" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="12" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 340 400 Q 510 350 580 300 Q 610 270 630 240" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="10" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 340 500 Q 500 450 560 400 Q 590 370 610 340" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="8" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    
+    <!-- Верхние массивные ветви -->
+    <path d="M 300 50 Q 150 20 50 0 Q 0 -20 -30 -40" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="12" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 300 50 Q 450 20 550 0 Q 600 -20 630 -40" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="12" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    
+    <!-- Дополнительные ветви -->
+    <path d="M 210 400 Q 50 350 -20 300" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="8" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+    <path d="M 390 400 Q 550 350 620 300" 
+          fill="none" 
+          stroke="url(#branchGradient)" 
+          stroke-width="8" 
+          stroke-linecap="round"
+          filter="url(#strongGlow)"/>
+  </g>
+  
+  <!-- Вторичные ветви -->
+  <g id="secondaryBranches">
+    <!-- Левая сторона -->
+    <path d="M 100 150 Q 60 120 30 90" fill="none" stroke="url(#branchGradient)" stroke-width="6" stroke-linecap="round" filter="url(#strongGlow)"/>
+    <path d="M 80 250 Q 40 220 10 190" fill="none" stroke="url(#branchGradient)" stroke-width="5" stroke-linecap="round" filter="url(#strongGlow)"/>
+    <path d="M 90 350 Q 50 320 20 290" fill="none" stroke="url(#branchGradient)" stroke-width="4" stroke-linecap="round" filter="url(#strongGlow)"/>
+    <path d="M 100 450 Q 60 420 30 390" fill="none" stroke="url(#branchGradient)" stroke-width="3" stroke-linecap="round" filter="url(#strongGlow)"/>
+    
+    <!-- Правая сторона -->
+    <path d="M 500 150 Q 540 120 570 90" fill="none" stroke="url(#branchGradient)" stroke-width="6" stroke-linecap="round" filter="url(#strongGlow)"/>
+    <path d="M 520 250 Q 560 220 590 190" fill="none" stroke="url(#branchGradient)" stroke-width="5" stroke-linecap="round" filter="url(#strongGlow)"/>
+    <path d="M 510 350 Q 550 320 580 290" fill="none" stroke="url(#branchGradient)" stroke-width="4" stroke-linecap="round" filter="url(#strongGlow)"/>
+    <path d="M 500 450 Q 540 420 570 390" fill="none" stroke="url(#branchGradient)" stroke-width="3" stroke-linecap="round" filter="url(#strongGlow)"/>
+  </g>
+  
+  <!-- Массивные листья и биолюминесцентные элементы -->
+  <g id="massiveLeaves">
+    <!-- Основные листья -->
+    <ellipse cx="20" cy="100" rx="25" ry="40" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(-30 20 100)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="25;30;25" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="580" cy="100" rx="25" ry="40" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(30 580 100)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="25;30;25" dur="3.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="0" cy="200" rx="20" ry="35" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(-45 0 200)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="600" cy="200" rx="20" ry="35" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(45 600 200)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="-20" cy="300" rx="18" ry="30" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(-60 -20 300)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4.2s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="620" cy="300" rx="18" ry="30" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(60 620 300)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3.8s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Верхние листья -->
+    <ellipse cx="50" cy="0" rx="20" ry="35" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(-20 50 0)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3.2s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="550" cy="0" rx="20" ry="35" fill="url(#leafGradient)" filter="url(#bioluminescentGlow)" transform="rotate(20 550 0)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4.8s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Дополнительные листья -->
+    <ellipse cx="150" cy="150" rx="15" ry="25" fill="url(#leafGradient)" filter="url(#strongGlow)" transform="rotate(-15 150 150)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="450" cy="150" rx="15" ry="25" fill="url(#leafGradient)" filter="url(#strongGlow)" transform="rotate(15 450 150)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.3s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  
+  <!-- Массивные биолюминесцентные точки -->
+  <g id="massiveBioluminescentDots">
+    <!-- Основные энергетические узлы -->
+    <circle cx="30" cy="80" r="6" fill="#00ff88" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="6;10;6" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="570" cy="80" r="6" fill="#00ff88" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="10" cy="180" r="5" fill="#00aaff" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="5;8;5" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="590" cy="180" r="5" fill="#00aaff" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="5;8;5" dur="2.7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="-10" cy="280" r="4" fill="#aa00ff" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="4;7;4" dur="1.9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="610" cy="280" r="4" fill="#aa00ff" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="4;7;4" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="380" r="4" fill="#ffd700" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="4;7;4" dur="2.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="380" r="4" fill="#ffd700" filter="url(#bioluminescentGlow)">
+      <animate attributeName="r" values="4;7;4" dur="2.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Дополнительные энергетические точки на стволе -->
+    <circle cx="230" cy="600" r="3" fill="#00ff88" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="370" cy="550" r="3" fill="#00aaff" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="700" r="3" fill="#aa00ff" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="650" r="3" fill="#ffd700" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.1s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Энергетические точки на корнях -->
+    <circle cx="100" cy="780" r="2" fill="#00ff88" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="500" cy="780" r="2" fill="#00aaff" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="790" r="2" fill="#aa00ff" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="450" cy="790" r="2" fill="#ffd700" filter="url(#strongGlow)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Энергетические потоки -->
+  <g id="energyFlows" opacity="0.7">
+    <path d="M 300 750 Q 200 700 100 650 Q 50 600 20 550" 
+          fill="none" 
+          stroke="#00ff88" 
+          stroke-width="4" 
+          stroke-dasharray="10,10"
+          filter="url(#energyGlow)">
+      <animate attributeName="stroke-dashoffset" values="0;20" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 300 750 Q 400 700 500 650 Q 550 600 580 550" 
+          fill="none" 
+          stroke="#00aaff" 
+          stroke-width="4" 
+          stroke-dasharray="10,10"
+          filter="url(#energyGlow)">
+      <animate attributeName="stroke-dashoffset" values="0;20" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 300 0 Q 300 200 300 400 Q 300 600 300 800" 
+          fill="none" 
+          stroke="#aa00ff" 
+          stroke-width="6" 
+          stroke-dasharray="15,15"
+          filter="url(#energyGlow)">
+      <animate attributeName="stroke-dashoffset" values="0;30" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 200 750 Q 100 600 50 450 Q 20 300 0 150" 
+          fill="none" 
+          stroke="#ffd700" 
+          stroke-width="3" 
+          stroke-dasharray="8,8"
+          filter="url(#energyGlow)">
+      <animate attributeName="stroke-dashoffset" values="0;16" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 400 750 Q 500 600 550 450 Q 580 300 600 150" 
+          fill="none" 
+          stroke="#ff00aa" 
+          stroke-width="3" 
+          stroke-dasharray="8,8"
+          filter="url(#energyGlow)">
+      <animate attributeName="stroke-dashoffset" values="0;16" dur="3.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Дополнительные энергетические поля -->
+  <g id="energyFields" opacity="0.4">
+    <ellipse cx="150" cy="400" rx="80" ry="120" fill="url(#energyFlow)">
+      <animate attributeName="opacity" values="0.4;0.6;0.4" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="80;100;80" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="450" cy="400" rx="80" ry="120" fill="url(#energyFlow)">
+      <animate attributeName="opacity" values="0.4;0.6;0.4" dur="5.5s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="80;100;80" dur="6.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="200" rx="120" ry="80" fill="url(#energyFlow)">
+      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="80;100;80" dur="5.5s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+</svg>
