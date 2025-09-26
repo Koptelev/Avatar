@@ -1253,18 +1253,26 @@ body::before {
     z-index: 10;
 }
 
-/* Лиды - белые огоньки для всех племен */
-.lead-dot.dot-air-lead,
-.lead-dot.dot-water-lead {
+/* Лиды - белые огоньки для Племени Воздуха, розовые для Племени Воды */
+.lead-dot.dot-air-lead {
     background: radial-gradient(circle, #ffffff, #ffffff);
     box-shadow: 0 0 20px #ffffff, 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.3);
 }
 
-/* Оплаты - зеленые огоньки для всех племен */
-.lead-dot.dot-air-payment,
-.lead-dot.dot-water-payment {
+.lead-dot.dot-water-lead {
+    background: radial-gradient(circle, #ff69b4, #ff69b4);
+    box-shadow: 0 0 20px #ff69b4, 0 0 40px rgba(255, 105, 180, 0.8), 0 0 60px rgba(255, 105, 180, 0.3);
+}
+
+/* Оплаты - зеленые огоньки для Племени Воздуха, синие для Племени Воды */
+.lead-dot.dot-air-payment {
     background: radial-gradient(circle, var(--primary-green), var(--primary-green));
     box-shadow: 0 0 25px var(--primary-green), 0 0 50px rgba(0, 255, 136, 0.9), 0 0 80px rgba(0, 255, 136, 0.4);
+}
+
+.lead-dot.dot-water-payment {
+    background: radial-gradient(circle, #00bfff, #00bfff);
+    box-shadow: 0 0 25px #00bfff, 0 0 50px rgba(0, 191, 255, 0.9), 0 0 80px rgba(0, 191, 255, 0.4);
 }
 
 @keyframes leadPulse {
@@ -1374,18 +1382,26 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-/* Лиды в легенде - белые огоньки */
-.legend-dot.dot-air-lead,
-.legend-dot.dot-water-lead {
+/* Лиды в легенде - белые для Племени Воздуха, розовые для Племени Воды */
+.legend-dot.dot-air-lead {
     background: radial-gradient(circle, #ffffff, #ffffff);
     box-shadow: 0 0 15px #ffffff, 0 0 30px rgba(255, 255, 255, 0.6);
 }
 
-/* Оплаты в легенде - зеленые огоньки */
-.legend-dot.dot-air-payment,
-.legend-dot.dot-water-payment {
+.legend-dot.dot-water-lead {
+    background: radial-gradient(circle, #ff69b4, #ff69b4);
+    box-shadow: 0 0 15px #ff69b4, 0 0 30px rgba(255, 105, 180, 0.6);
+}
+
+/* Оплаты в легенде - зеленые для Племени Воздуха, синие для Племени Воды */
+.legend-dot.dot-air-payment {
     background: radial-gradient(circle, var(--primary-green), var(--primary-green));
     box-shadow: 0 0 20px var(--primary-green), 0 0 40px rgba(0, 255, 136, 0.7);
+}
+
+.legend-dot.dot-water-payment {
+    background: radial-gradient(circle, #00bfff, #00bfff);
+    box-shadow: 0 0 20px #00bfff, 0 0 40px rgba(0, 191, 255, 0.7);
 }
 
 /* Rewards Section */
