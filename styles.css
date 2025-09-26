@@ -640,7 +640,7 @@ body::before {
 }
 
 .stats-title {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Avatar', 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     text-align: center;
@@ -702,7 +702,7 @@ body::before {
 
 .stat-number {
     display: block;
-    font-family: 'Orbitron', monospace;
+    font-family: 'Avatar', 'Inter', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.3rem;
@@ -1985,7 +1985,7 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Orbitron', monospace;
+    font-family: 'Avatar', 'Inter', sans-serif;
     font-weight: 700;
     font-size: 0.7rem;
     color: var(--cosmic-black);
@@ -2620,7 +2620,7 @@ body::before {
 }
 
 .popup-content h3 {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: var(--primary-green);
