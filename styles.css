@@ -2340,14 +2340,16 @@ body::before {
         rgba(15, 20, 25, 0.95) 100%);
     border-radius: 20px;
     padding: 2rem;
-    max-width: 500px;
+    max-width: 600px;
     width: 90%;
+    max-height: 80vh;
     border: 2px solid rgba(0, 255, 136, 0.3);
     box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.5),
         0 0 40px rgba(0, 255, 136, 0.2);
     position: relative;
     backdrop-filter: blur(20px);
+    overflow-y: auto;
 }
 
 .products-popup h3 {
@@ -2361,7 +2363,7 @@ body::before {
 }
 
 .products-list {
-    text-align: center;
+    text-align: left;
 }
 
 .products-list p {
@@ -2369,6 +2371,46 @@ body::before {
     font-family: 'Avatar', 'Inter', sans-serif;
     margin-bottom: 1rem;
     line-height: 1.6;
+}
+
+.products-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.products-ul li {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Avatar', 'Inter', sans-serif;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.04) 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.products-ul li::before {
+    content: '•';
+    color: var(--primary-green);
+    font-weight: bold;
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.products-ul li:hover {
+    transform: translateX(5px);
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 3px 15px rgba(0, 255, 136, 0.2);
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 136, 0.1) 0%, 
+        rgba(255, 255, 255, 0.08) 100%);
 }
 
 .products-link {
