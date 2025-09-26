@@ -889,6 +889,8 @@ body::before {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .clan:hover {
@@ -916,6 +918,17 @@ body::before {
 
 .clan:hover::before {
     opacity: 1;
+}
+
+.clan:visited {
+    color: inherit;
+}
+
+.clan:focus {
+    outline: none;
+    box-shadow: 
+        0 0 0 3px rgba(0, 255, 136, 0.3),
+        0 20px 40px rgba(0, 255, 136, 0.3);
 }
 
 .clan-symbol {
