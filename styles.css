@@ -2057,6 +2057,189 @@ body::before {
     font-family: 'Avatar', 'Inter', sans-serif;
 }
 
+/* Leaderboard Section */
+.leaderboard {
+    padding: 6rem 0;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.leaderboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clan-leaderboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.clan-section {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.04) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.clan-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 136, 0.05) 0%, 
+        rgba(0, 200, 255, 0.05) 50%, 
+        rgba(138, 43, 226, 0.05) 100%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.clan-section.air-clan {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.clan-section.air-clan::before {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.04) 100%);
+}
+
+.clan-section.water-clan {
+    border-color: rgba(0, 200, 255, 0.3);
+}
+
+.clan-section.water-clan::before {
+    background: linear-gradient(135deg, 
+        rgba(0, 200, 255, 0.08) 0%, 
+        rgba(0, 200, 255, 0.04) 100%);
+}
+
+.clan-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    justify-content: center;
+}
+
+.clan-section.air-clan .clan-title {
+    color: white;
+    text-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.clan-section.water-clan .clan-title {
+    color: var(--bioluminescent-blue);
+    text-shadow: 
+        0 0 20px rgba(0, 200, 255, 0.5),
+        0 0 40px rgba(0, 200, 255, 0.3);
+}
+
+.clan-symbol {
+    font-size: 2.5rem;
+    animation: clanSymbolFloat 3s ease-in-out infinite;
+}
+
+.employees-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.employee-item {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.06) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.employee-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.employee-item:hover::before {
+    left: 100%;
+}
+
+.employee-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 
+        0 5px 20px rgba(0, 255, 136, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.clan-section.air-clan .employee-item:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 5px 20px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.clan-section.water-clan .employee-item:hover {
+    border-color: rgba(0, 200, 255, 0.3);
+    box-shadow: 
+        0 5px 20px rgba(0, 200, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.employee-name {
+    font-family: 'Avatar', 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+}
+
+.clan-section.air-clan .employee-name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.clan-section.water-clan .employee-name {
+    color: rgba(0, 200, 255, 0.9);
+}
+
+@keyframes clanSymbolFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-3px) rotate(5deg); 
+    }
+}
+
 /* Footer */
 .footer {
     background: var(--cosmic-black);
@@ -2512,6 +2695,33 @@ body::before {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    /* Leaderboard responsive */
+    .clan-leaderboard {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .clan-section {
+        padding: 2rem;
+    }
+    
+    .clan-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .clan-symbol {
+        font-size: 2rem;
+    }
+    
+    .employee-item {
+        padding: 1rem 1.2rem;
+    }
+    
+    .employee-name {
+        font-size: 1rem;
     }
     
     
@@ -3071,6 +3281,32 @@ body::before {
         font-size: 0.9rem;
         line-height: 1.5;
         letter-spacing: 0.5px;
+    }
+    
+    /* Leaderboard responsive */
+    .leaderboard {
+        padding: 3rem 0;
+    }
+    
+    .clan-section {
+        padding: 1.5rem;
+    }
+    
+    .clan-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .clan-symbol {
+        font-size: 1.8rem;
+    }
+    
+    .employee-item {
+        padding: 0.8rem 1rem;
+    }
+    
+    .employee-name {
+        font-size: 0.9rem;
     }
     
     .titles-section h3 {
