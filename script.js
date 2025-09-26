@@ -64,6 +64,28 @@ class EywaGame {
             });
         }
 
+        // Products popup
+        const productCard = document.getElementById('productCard');
+        const productsPopupClose = document.getElementById('productsPopupClose');
+        const productsPopup = document.getElementById('productsPopup');
+        
+        if (productCard) {
+            productCard.addEventListener('click', () => {
+                this.showProductsPopup();
+            });
+        }
+        
+        if (productsPopupClose && productsPopup) {
+            productsPopupClose.addEventListener('click', () => {
+                this.closeProductsPopup();
+            });
+            productsPopup.addEventListener('click', (e) => {
+                if (e.target === productsPopup) {
+                    this.closeProductsPopup();
+                }
+            });
+        }
+
         // Scroll indicator
         const scrollIndicator = document.querySelector('.scroll-indicator');
         if (scrollIndicator) {
@@ -100,6 +122,13 @@ class EywaGame {
             'Наталья Федорова', 'Владимир Медведев', 'Ирина Захарова', 'Андрей Семенов'
         ];
 
+        const employees = [
+            'Иванов Иван Иванович', 'Петров Петр Петрович', 'Сидорова Анна Сергеевна',
+            'Козлов Дмитрий Александрович', 'Морозова Елена Владимировна', 'Лебедев Сергей Николаевич',
+            'Соколова Татьяна Михайловна', 'Попов Алексей Андреевич', 'Федорова Наталья Игоревна',
+            'Медведев Владимир Сергеевич', 'Захарова Ирина Дмитриевна', 'Семенов Андрей Петрович'
+        ];
+
         const branches = ['moscow', 'west']; // Московский и Западный МРЦ
 
         // Generate 20-30 random leads
@@ -112,6 +141,7 @@ class EywaGame {
                 id: i + 1,
                 company: companies[Math.floor(Math.random() * companies.length)],
                 contact: contacts[Math.floor(Math.random() * contacts.length)],
+                employee: employees[Math.floor(Math.random() * employees.length)], // Сотрудник, который завел лид
                 date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
                 type: isPayment ? 'payment' : 'lead',
                 branch: branch,
@@ -477,14 +507,16 @@ class EywaGame {
     showLeadPopup(lead) {
         const popup = document.getElementById('leadPopup');
         const company = document.getElementById('leadCompany');
-        const contact = document.getElementById('leadContact');
+        const employee = document.getElementById('leadEmployee');
+        const type = document.getElementById('leadType');
         const status = document.getElementById('leadStatus');
         const date = document.getElementById('leadDate');
         
-        if (popup && company && contact && status && date) {
+        if (popup && company && employee && type && status && date) {
             company.textContent = lead.company;
-            contact.textContent = lead.contact;
-            status.textContent = lead.status;
+            employee.textContent = lead.employee;
+            type.textContent = lead.type === 'payment' ? 'Оплата' : 'Лид';
+            status.textContent = lead.status || (lead.type === 'payment' ? 'Оплачено' : 'В работе');
             date.textContent = lead.date.toLocaleDateString('ru-RU');
             
             popup.classList.add('active');
@@ -493,6 +525,20 @@ class EywaGame {
 
     closeLeadPopup() {
         const popup = document.getElementById('leadPopup');
+        if (popup) {
+            popup.classList.remove('active');
+        }
+    }
+
+    showProductsPopup() {
+        const popup = document.getElementById('productsPopup');
+        if (popup) {
+            popup.classList.add('active');
+        }
+    }
+
+    closeProductsPopup() {
+        const popup = document.getElementById('productsPopup');
         if (popup) {
             popup.classList.remove('active');
         }

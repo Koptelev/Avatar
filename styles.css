@@ -1240,26 +1240,18 @@ body::before {
     z-index: 10;
 }
 
-/* Московский МРЦ (Племя Воздуха) - синие огоньки */
-.lead-dot.dot-air-lead {
+/* Лиды - белые огоньки для всех племен */
+.lead-dot.dot-air-lead,
+.lead-dot.dot-water-lead {
     background: radial-gradient(circle, #ffffff, #ffffff);
     box-shadow: 0 0 20px #ffffff, 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.3);
 }
 
-.lead-dot.dot-air-payment {
-    background: radial-gradient(circle, #ffffff, #ffffff);
-    box-shadow: 0 0 25px #ffffff, 0 0 50px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 255, 255, 0.4);
-}
-
-/* Западный МРЦ (Племя Воды) - фиолетовые огоньки */
-.lead-dot.dot-water-lead {
-    background: radial-gradient(circle, #ffffff, var(--bioluminescent-blue));
-    box-shadow: 0 0 20px var(--bioluminescent-blue), 0 0 40px rgba(0, 170, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.3);
-}
-
+/* Оплаты - зеленые огоньки для всех племен */
+.lead-dot.dot-air-payment,
 .lead-dot.dot-water-payment {
-    background: radial-gradient(circle, #ffffff, var(--bioluminescent-blue));
-    box-shadow: 0 0 25px var(--bioluminescent-blue), 0 0 50px rgba(0, 170, 255, 0.9), 0 0 80px rgba(255, 255, 255, 0.4);
+    background: radial-gradient(circle, var(--primary-green), var(--primary-green));
+    box-shadow: 0 0 25px var(--primary-green), 0 0 50px rgba(0, 255, 136, 0.9), 0 0 80px rgba(0, 255, 136, 0.4);
 }
 
 @keyframes leadPulse {
@@ -1369,26 +1361,18 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-/* Московский МРЦ огоньки в легенде */
-.legend-dot.dot-air-lead {
+/* Лиды в легенде - белые огоньки */
+.legend-dot.dot-air-lead,
+.legend-dot.dot-water-lead {
     background: radial-gradient(circle, #ffffff, #ffffff);
     box-shadow: 0 0 15px #ffffff, 0 0 30px rgba(255, 255, 255, 0.6);
 }
 
-.legend-dot.dot-air-payment {
-    background: radial-gradient(circle, #ffffff, #ffffff);
-    box-shadow: 0 0 20px #ffffff, 0 0 40px rgba(255, 255, 255, 0.7);
-}
-
-/* Западный МРЦ огоньки в легенде */
-.legend-dot.dot-water-lead {
-    background: radial-gradient(circle, #ffffff, var(--bioluminescent-blue));
-    box-shadow: 0 0 15px var(--bioluminescent-blue), 0 0 30px rgba(0, 170, 255, 0.6);
-}
-
+/* Оплаты в легенде - зеленые огоньки */
+.legend-dot.dot-air-payment,
 .legend-dot.dot-water-payment {
-    background: radial-gradient(circle, #ffffff, var(--bioluminescent-blue));
-    box-shadow: 0 0 20px var(--bioluminescent-blue), 0 0 40px rgba(0, 170, 255, 0.7);
+    background: radial-gradient(circle, var(--primary-green), var(--primary-green));
+    box-shadow: 0 0 20px var(--primary-green), 0 0 40px rgba(0, 255, 136, 0.7);
 }
 
 /* Rewards Section */
@@ -1474,15 +1458,38 @@ body::before {
 }
 
 .title-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 20px;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 136, 0.1) 0%, 
+        rgba(0, 200, 255, 0.1) 50%, 
+        rgba(138, 43, 226, 0.1) 100%);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: titleIconFloat 3s ease-in-out infinite;
-    text-shadow: 
-        0 0 20px var(--primary-green),
-        0 0 40px rgba(0, 255, 136, 0.5),
-        0 0 60px rgba(0, 255, 136, 0.3);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 136, 0.3),
+        inset 0 0 20px rgba(0, 255, 136, 0.1);
     position: relative;
     z-index: 2;
+    overflow: hidden;
+}
+
+.title-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
+    transition: all 0.3s ease;
+}
+
+.title-icon:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.8));
 }
 
 @keyframes titleIconFloat {
@@ -2003,6 +2010,33 @@ body::before {
     border-color: var(--primary-green);
 }
 
+.rule-card.clickable {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.rule-card.clickable:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.3);
+    border-color: var(--primary-green);
+}
+
+.rule-card.clickable::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.rule-card.clickable:hover::before {
+    left: 100%;
+}
+
 .rule-icon {
     font-size: 2rem;
     color: var(--primary-green);
@@ -2063,6 +2097,96 @@ body::before {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-light);
     opacity: 0.6;
+}
+
+/* Products Popup Styles */
+.products-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.products-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.products-popup .popup-content {
+    background: linear-gradient(135deg, 
+        rgba(10, 15, 42, 0.95) 0%, 
+        rgba(15, 20, 25, 0.95) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(0, 255, 136, 0.2);
+    position: relative;
+    backdrop-filter: blur(20px);
+}
+
+.products-popup h3 {
+    color: var(--primary-green);
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.products-list {
+    text-align: center;
+}
+
+.products-list p {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Avatar', 'Inter', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.products-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-green), #00cc88);
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: 'Avatar', 'Orbitron', 'Arial Black', sans-serif;
+    font-weight: normal;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.products-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5);
+    background: linear-gradient(135deg, #00cc88, var(--primary-green));
+}
+
+.products-note {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-top: 1rem;
 }
 
 /* Lead Popup */
@@ -2160,8 +2284,14 @@ body::before {
     }
     
     .title-icon {
-        font-size: 3.2rem;
-        margin-bottom: 1.2rem;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.2rem auto;
+    }
+    
+    .title-icon img {
+        width: 50px;
+        height: 50px;
     }
     
     .title-card h4 {
@@ -2351,8 +2481,14 @@ body::before {
     }
     
     .title-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .title-icon img {
+        width: 45px;
+        height: 45px;
     }
     
     .title-card h4 {
@@ -2915,8 +3051,14 @@ body::before {
     }
     
     .title-icon {
-        font-size: 2.5rem;
-        margin-bottom: 0.8rem;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.8rem auto;
+    }
+    
+    .title-icon img {
+        width: 35px;
+        height: 35px;
     }
     
     .title-card h4 {
