@@ -19,7 +19,7 @@ class EywaGame {
 
     init() {
         this.setupEventListeners();
-        this.generateSampleData();
+        // this.generateSampleData(); // Отключено для обнуления статистики
         this.startAnimations();
         this.setupParallax();
         this.setupSmoothScrolling();
