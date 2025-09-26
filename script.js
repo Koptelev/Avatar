@@ -86,6 +86,28 @@ class EywaGame {
             });
         }
 
+        // Points system popup
+        const pointsCard = document.getElementById('pointsCard');
+        const pointsPopupClose = document.getElementById('pointsPopupClose');
+        const pointsPopup = document.getElementById('pointsPopup');
+        
+        if (pointsCard) {
+            pointsCard.addEventListener('click', () => {
+                this.showPointsPopup();
+            });
+        }
+        
+        if (pointsPopupClose && pointsPopup) {
+            pointsPopupClose.addEventListener('click', () => {
+                this.closePointsPopup();
+            });
+            pointsPopup.addEventListener('click', (e) => {
+                if (e.target === pointsPopup) {
+                    this.closePointsPopup();
+                }
+            });
+        }
+
         // Scroll indicator
         const scrollIndicator = document.querySelector('.scroll-indicator');
         if (scrollIndicator) {
@@ -539,6 +561,20 @@ class EywaGame {
 
     closeProductsPopup() {
         const popup = document.getElementById('productsPopup');
+        if (popup) {
+            popup.classList.remove('active');
+        }
+    }
+
+    showPointsPopup() {
+        const popup = document.getElementById('pointsPopup');
+        if (popup) {
+            popup.classList.add('active');
+        }
+    }
+
+    closePointsPopup() {
+        const popup = document.getElementById('pointsPopup');
         if (popup) {
             popup.classList.remove('active');
         }

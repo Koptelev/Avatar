@@ -425,13 +425,12 @@
                         <h4>Продуктовая корзина</h4>
                         <p>Не все продукты Контур участвуют в миссии. Нажмите для просмотра списка</p>
                     </div>
-                    <div class="rule-card">
+                    <div class="rule-card clickable" id="pointsCard">
                         <div class="rule-icon">
                             <i class="fas fa-star"></i>
                         </div>
                         <h4>Система баллов</h4>
-                        <p>Лиды: от 4 лидов и больше = 1 балл<br>
-                        Оплаты: 0-10 тыс = 1 балл, 10-30 тыс = 5 баллов, 30-50 тыс = 15 баллов, 50-100 тыс = 25 баллов</p>
+                        <p>Нажмите для просмотра критериев начисления баллов</p>
                     </div>
                 </div>
             </div>
@@ -627,6 +626,67 @@
                     <li>Экстерн</li>
                 </ul>
                 <p class="products-note">Не все продукты Контур участвуют в миссии спасения Эйвы</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Points System Popup -->
+    <div class="points-popup" id="pointsPopup">
+        <div class="popup-content">
+            <button class="popup-close" id="pointsPopupClose">&times;</button>
+            <h3>Критерии начисления баллов</h3>
+            <div class="points-tables">
+                <div class="points-table-section">
+                    <h4>Количество лидов переданных в течение одной рабочей недели с понедельника по пятницу включительно</h4>
+                    <table class="points-table">
+                        <thead>
+                            <tr>
+                                <th>Штуки</th>
+                                <th>Баллы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0-3</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>4 и более</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="points-table-section">
+                    <h4>Сумма оплаты с одного счета с применением коэффициента</h4>
+                    <table class="points-table">
+                        <thead>
+                            <tr>
+                                <th>Сумма</th>
+                                <th>Баллы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0 - 10.000</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>10.000 до 30.000</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>30.000 до 50.000</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>50.000 и более</td>
+                                <td>25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
